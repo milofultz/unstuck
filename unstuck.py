@@ -1,8 +1,12 @@
+import os
 import shutil
 from time import sleep
 
 from playsound import playsound
 
+
+DIR_PATH = os.path.dirname(os.path.realpath(__file__))
+ALERT_WAV = os.path.join(DIR_PATH, 'alert.wav')
 
 TERMINAL_HEIGHT = shutil.get_terminal_size()[1]
 
@@ -35,7 +39,7 @@ def timer(seconds: int, text: str):
             break
 
     if not seconds_left:
-        playsound('alert.wav')
+        playsound(ALERT_WAV)
     clear_screen()
 
 
